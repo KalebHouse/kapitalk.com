@@ -5,8 +5,30 @@
     <link rel='stylesheet' type='text/css' href='./stylesheets/css/all.css'>
   </head>
   <body>
+    <nav id='mainNav'>
+      <a href='#' onClick='showContent("aboutMe")'>About Me</a>
+      <a href='#' onClick='showContent("links")'>Links</a>
+      <a href='#' onClick='showContent("projects")'>Projects</a>
+      <a href='#' onClick='showContent("contact")'>Contact</a>
+    </nav>
     <div id='mainContainer'>
-      <div class='centerStage'>Welcome to KapitalK.com. More coming soon.</div>
+      <div id='aboutMe' class='content hidden'>
+        <p>My name is Kaleb Boultinghouse and this is my website!</p>
+      </div>
+      <div id='links' class='content hidden'>
+        <ul>
+          <li><a href='https://www.linkedin.com/in/kaleb-boultinghouse-23a69618/'>LinkedIn</a></li>
+          <li><a href='https://github.com/KalebHouse'>GitHub</a></li>
+        </ul>
+      </div>
+      <div id='projects' class='content hidden'>
+        <ul>
+          <li><a>World Hub</a></li>
+        </ul>
+      </div>
+      <div id='contact' class='content hidden'>
+      </div>
     </div>
+    <script type='text/javascript' src='js/main.js'></script>
   </body>
 </html>
