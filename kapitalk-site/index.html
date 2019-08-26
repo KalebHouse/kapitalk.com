@@ -7,15 +7,17 @@
     <script type='text/javascript' src="./node_modules/feather-icons/dist/feather.min.js"></script>
   </head>
   <body>
-    <nav id='mainNav'>
-      <a href='#' onClick='scrollMe("aboutMe")'>About Me</a>
-      <a href='#' onClick='scrollMe("projects")'>Projects</a>
-    </nav>
+    <div id='mainHeader'>
+      <nav id='mainNav'>
+        <a class='active' onClick='scrollMe("aboutMe")'>About Me</a>
+        <a onClick='scrollMe("projects")'>Projects</a>
+      </nav>
+    </div>
     <div id='firstPage'></div>
     <div id='mainContainer'>
       <div id='aboutMe' class='content'>
         <div id='bio'> 
-          <h3>Kaleb Boultinghouse. Full-stack and Software Developer</h3>
+          <h2>Kaleb Boultinghouse</h2> <h4>Full-stack and Software Developer</h4>
           <p>Currently learning Chinese, React, and AWS. Passionate about creating aesthetic, smooth User Experiences and making technology more accessible. An easy to learn product and code-base makes the world a better place.</p>
           <p>You can find me, and some of my work, at the links below.</p>
           <ul>
