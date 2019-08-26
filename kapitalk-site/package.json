@@ -7,6 +7,6 @@
     "gulp-sass": "4.0.2"
   },
   "dependencies": {
-    
+    "feather-icons": "4.24.1"  
   }
 }

@@ -1,34 +1,72 @@
 <!DOCTYPE html>
 <html>
+  <meta charset="utf-8">
   <head>
     <title> KapitalK </title>
     <link rel='stylesheet' type='text/css' href='./stylesheets/css/all.css'>
+    <script type='text/javascript' src="./node_modules/feather-icons/dist/feather.min.js"></script>
   </head>
   <body>
     <nav id='mainNav'>
-      <a href='#' onClick='showContent("aboutMe")'>About Me</a>
-      <a href='#' onClick='showContent("links")'>Links</a>
-      <a href='#' onClick='showContent("projects")'>Projects</a>
-      <a href='#' onClick='showContent("contact")'>Contact</a>
+      <a href='#' onClick='scrollMe("aboutMe")'>About Me</a>
+      <a href='#' onClick='scrollMe("projects")'>Projects</a>
     </nav>
+    <div id='firstPage'></div>
     <div id='mainContainer'>
-      <div id='aboutMe' class='content hidden'>
-        <p>My name is Kaleb Boultinghouse and this is my website!</p>
+      <div id='aboutMe' class='content'>
+        <div id='bio'> 
+          <h3>Kaleb Boultinghouse. Full-stack and Software Developer</h3>
+          <p>Currently learning Chinese, React, and AWS. Passionate about creating aesthetic, smooth User Experiences and making technology more accessible. An easy to learn product and code-base makes the world a better place.</p>
+          <p>You can find me, and some of my work, at the links below.</p>
+          <ul>
+            <li><a href='https://www.linkedin.com/in/kaleb-boultinghouse-23a69618/'><i data-feather='linkedin'></i></a></li>
+            <li><a href='https://github.com/KalebHouse'><i data-feather='github'></i></a></li>
+            <li><a href='mailto://kalebhouse@gmail.com'><i data-feather='mail'></i></a></li>
+          </ul>
+        </div>
+        <div id='tech'>
+          <div id='frontEnd' class='techBio'>
+            <i data-feather='layout'></i>
+            <h4>Front End</h4>
+            <ul>
+              <li>CSS and SASS</li>
+              <li>JS and jQuery</li>
+              <li>UI and Design</li>
+            </ul>
+          </div>
+          <div id='backEnd' class='techBio'>
+            <i data-feather='server'></i>
+            <h4>Back End</h4>
+            <ul>
+              <li>C# and WCF</li>
+              <li>Ruby on Rails</li>
+              <li>PHP</li>
+              <li>SQL</li>
+              <li>Docker</li>
+            </ul>
+          </div>
+          <div id='softwareDev' class='techBio'>
+            <i data-feather='hard-drive'></i>
+            <h4>Software Dev</h4>
+              <ul>
+                <li>C++</li>
+                <li>Python</li>
+                <li>Git and TFS</li>
+                <li>Linux and Windows</li>
+              </ul>
+          </div>
+        </div>
       </div>
-      <div id='links' class='content hidden'>
-        <ul>
-          <li><a href='https://www.linkedin.com/in/kaleb-boultinghouse-23a69618/'>LinkedIn</a></li>
-          <li><a href='https://github.com/KalebHouse'>GitHub</a></li>
-        </ul>
-      </div>
-      <div id='projects' class='content hidden'>
+      <div id='projects' class='content'>
         <ul>
           <li><a>World Hub</a></li>
         </ul>
       </div>
-      <div id='contact' class='content hidden'>
-      </div>
     </div>
+    <footer><p>Designed and Built by Kaleb Boultinghouse</p></footer>
     <script type='text/javascript' src='js/main.js'></script>
+    <script>
+      feather.replace();
+    </script>
   </body>
 </html>
