@@ -9,11 +9,12 @@
   <body>
     <div id='mainHeader'>
       <nav id='mainNav'>
-        <a class='active' onClick='scrollMe("aboutMe")'>About Me</a>
-        <a onClick='scrollMe("projects")'>Projects</a>
+        <a id='aboutMe-nav' class='active' onClick='loadPage("aboutMe")'>About Me</a>
+        <a id='projects-nav' onClick='loadPage("projects")'>Projects</a>
       </nav>
     </div>
-    <div id='firstPage'></div>
+    <div class='backgroundImage' id='backgroundDay'></div>
+    <div class='backgroundImage fadeOut' id='backgroundNight'></div>
     <div id='mainContainer'>
       <div id='aboutMe' class='content'>
         <div id='bio'> 
@@ -61,7 +62,7 @@
       </div>
       <div id='projects' class='content'>
         <div class='projectCard'>
-          <i data-feather='globe'></i>
+          <i class='headerImg' data-feather='globe'></i>
           <div class='projectHeader'><a>World Hub (Coming Soon)<i data-feather='external-link'></i></a></div>
           <p>A React.JS app to view the weather, time, and currency exchange for countries around the world.</p>
         </div>

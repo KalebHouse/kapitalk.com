@@ -1,49 +1,247 @@
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1.0; }
+  to {
+    opacity: 0.0; } }
+
+@keyframes fadeOut {
+  from {
+    opacity: 1.0; }
+  to {
+    opacity: 0.0; } }
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0.0; }
+  to {
+    opacity: 1.0; } }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.0; }
+  to {
+    opacity: 1.0; } }
+
 html {
   height: 100%;
   font-family: Verdana, Geneva, sans-serif;
-  font-size: 12pt; }
+  font-size: 1em;
+  color: #3BCEAC; }
   html body {
-    background-image: linear-gradient(to bottom right, #502E99, #957ACC);
-    padding: 20px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; }
-    html body #mainNav {
-      width: 60%;
-      height: 30px;
-      margin: 0px auto;
-      text-align: justify;
-      border-bottom: solid 1px white; }
-      html body #mainNav a {
-        color: #f0f465;
-        display: inline-block;
-        margin: 5px 10px;
-        height: 100%; }
-        html body #mainNav a:link {
-          text-decoration: none; }
-      html body #mainNav:after {
-        content: '';
-        display: inline-block;
-        width: 100%; }
+    height: 100vh;
+    padding: 0px 20px;
+    background-color: black;
+    margin-top: 0px;
+    margin-bottom: 0px; }
+    html body a {
+      color: #EE4266; }
+      html body a:link {
+        text-decoration: none; }
+      html body a:hover {
+        color: #427ac8; }
+    html body #mainHeader {
+      width: 100%;
+      background-color: black;
+      height: 100px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      border-bottom: solid 1px #EE4266;
+      z-index: 100; }
+      @media (min-width: 768px) and (max-width: 1023px) {
+        html body #mainHeader {
+          height: 50px; } }
+      @media (min-width: 1024px) {
+        html body #mainHeader {
+          height: 50px; } }
+      html body #mainHeader #mainNav {
+        width: 90%;
+        height: 65px;
+        left: 0;
+        right: 0;
+        margin: 0px auto;
+        padding-top: 35px;
+        text-align: justify;
+        font-size: 35px; }
+        @media (min-width: 768px) and (max-width: 1023px) {
+          html body #mainHeader #mainNav {
+            width: 75%;
+            height: 40px;
+            font-size: 21px;
+            padding-top: 10px; } }
+        @media (min-width: 1024px) {
+          html body #mainHeader #mainNav {
+            width: 60%;
+            height: 40px;
+            font-size: 21px;
+            padding-top: 10px; } }
+        html body #mainHeader #mainNav a {
+          display: inline-block;
+          margin: 0px 18px;
+          height: 100%; }
+          html body #mainHeader #mainNav a:hover {
+            color: #427ac8; }
+          html body #mainHeader #mainNav a.active {
+            color: #427ac8; }
+            html body #mainHeader #mainNav a.active:after {
+              content: '';
+              position: absolute;
+              display: block;
+              top: 55%;
+              margin-left: -10px;
+              border: solid #427ac8;
+              padding: 3px;
+              border-width: 0 3px 3px 0;
+              transform: rotate(-45deg);
+              -webkit-transform: rotate(-45deg); }
+              @media (min-width: 768px) and (max-width: 1023px) {
+                html body #mainHeader #mainNav a.active:after {
+                  top: 35%; } }
+              @media (min-width: 1024px) {
+                html body #mainHeader #mainNav a.active:after {
+                  top: 35%; } }
+        html body #mainHeader #mainNav:after {
+          content: '';
+          display: inline-block;
+          width: 100%;
+          z-index: -1; }
+    html body .backgroundImage {
+      width: 100%;
+      height: calc(100vh - 100px);
+      position: absolute;
+      top: 100px;
+      margin-left: -30px;
+      margin-right: -30px;
+      background-color: black;
+      background-repeat: no-repeat;
+      background-position: center;
+      overflow: hidden; }
+      html body .backgroundImage#backgroundDay {
+        background-image: url("/imgs/Background-Day.png"); }
+      html body .backgroundImage#backgroundNight {
+        background-image: url("/imgs/Background-Night.png"); }
+      html body .backgroundImage.fadeOut {
+        -webkit-animation: fadeOut 1.5s linear;
+        animation: fadeOut 1.5s linear;
+        opacity: 0.0; }
+      html body .backgroundImage.fadeIn {
+        -webkit-animation: fadeIn 2.5s linear;
+        animation: fadeIn 2.5s linear;
+        opacity: 1.0; }
+      @media (min-width: 768px) and (max-width: 1023px) {
+        html body .backgroundImage {
+          top: 50px;
+          height: calc(100vh - 50px); } }
+      @media (min-width: 1024px) {
+        html body .backgroundImage {
+          top: 50px;
+          height: calc(100vh - 50px); } }
     html body #mainContainer {
-      width: 60%;
-      height: 100%;
-      padding: 20px;
+      width: 90%;
       margin: 0 auto;
       position: relative;
-      justify-content: center;
-      align-items: center; }
+      font-size: 21px; }
+      @media (min-width: 768px) and (max-width: 1023px) {
+        html body #mainContainer {
+          width: 75%; } }
+      @media (min-width: 1024px) {
+        html body #mainContainer {
+          width: 60%; } }
       html body #mainContainer .content {
-        display: inline-block;
-        width: 100%;
-        max-height: 500px;
-        overflow: hidden;
+        padding-top: 110px;
         position: absolute;
-        transition-property: max-height;
-        transition-duration: .5s;
-        transition-delay: .5s; }
-        html body #mainContainer .content.hidden {
-          max-height: 0;
-          transition-property: max-height;
-          transition-duration: .5s;
-          transition-delay: 0s; }
+        width: 100%;
+        height: calc(100vh - 110px);
+        -webkit-transition: opacity 1.5s linear;
+        -moz-transition: opacity 1.5s linear;
+        -o-transition: opacity 1.5s linear;
+        -ms-transition: opcaity 1.5s linear;
+        transition: opacity 1.5s linear; }
+        @media (min-width: 768px) and (max-width: 1023px) {
+          html body #mainContainer .content {
+            padding-top: 60px;
+            height: calc(100vh - 60px); } }
+        @media (min-width: 1024px) {
+          html body #mainContainer .content {
+            padding-top: 60px;
+            height: calc(100vh - 60px); } }
+      html body #mainContainer #aboutMe {
+        width: 100%;
+        z-index: 5; }
+        html body #mainContainer #aboutMe #bio {
+          padding: 0px 10px;
+          background-color: rgba(0, 0, 0, 0.5);
+          border: 1px solid #0EAD69;
+          box-shadow: 0px 0px 5px #0EAD69; }
+          html body #mainContainer #aboutMe #bio ul {
+            list-style-type: none;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            padding-left: 0px; }
+            html body #mainContainer #aboutMe #bio ul li {
+              float: left;
+              margin: 0px auto; }
+              html body #mainContainer #aboutMe #bio ul li a {
+                display: inline-block; }
+                html body #mainContainer #aboutMe #bio ul li a .feather {
+                  width: 50px;
+                  height: 50px; }
+        html body #mainContainer #aboutMe #tech {
+          width: 100%;
+          padding-top: 10px; }
+          html body #mainContainer #aboutMe #tech .techBio {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 1px solid #0EAD69;
+            box-shadow: 0px 0px 5px #0EAD69;
+            height: 250px;
+            width: 30%;
+            margin-left: 2.5%;
+            float: left;
+            text-align: center; }
+            html body #mainContainer #aboutMe #tech .techBio ul {
+              list-style-type: none;
+              padding-left: 0px; }
+            html body #mainContainer #aboutMe #tech .techBio .feather {
+              color: #FFD23F;
+              width: 40px;
+              height: 40px;
+              margin: 5px auto 0px; }
+            html body #mainContainer #aboutMe #tech .techBio h4 {
+              margin: 5px 0px;
+              color: #FFD23F; }
+      html body #mainContainer #projects {
+        opacity: 0.0;
+        height: calc(100vh - 110px);
+        z-index: 0; }
+        @media (min-width: 768px) and (max-width: 1023px) {
+          html body #mainContainer #projects {
+            height: calc(100vh - 60px); } }
+        @media (min-width: 1024px) {
+          html body #mainContainer #projects {
+            height: calc(100vh - 60px); } }
+        html body #mainContainer #projects .projectCard {
+          background-color: rgba(0, 0, 0, 0.5);
+          border: 1px solid #0EAD69;
+          box-shadow: 0px 0px 5px #0EAD69;
+          width: 40%;
+          float: left;
+          padding: 5px 10px; }
+          html body #mainContainer #projects .projectCard .headerImg.feather {
+            color: #FFD23F;
+            width: 40px;
+            height: 40px;
+            margin: 5px 0px; }
+          html body #mainContainer #projects .projectCard .projectHeader {
+            width: 100%; }
+            html body #mainContainer #projects .projectCard .projectHeader .feather {
+              width: 20px;
+              height: 20px; }
+    html body footer {
+      margin: 0 auto;
+      color: #999;
+      position: fixed;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 0 5px; }

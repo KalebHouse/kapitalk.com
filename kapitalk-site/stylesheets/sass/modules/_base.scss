@@ -8,6 +8,7 @@ html {
     padding: 0px 20px;
     background-color: black;
     margin-top: 0px;
+    margin-bottom: 0px;
     a {
       color: $primary;
      &:link {
@@ -15,43 +16,73 @@ html {
      }
      &:hover {
        color: $links;
-       &:after {
-        content: '';
-        position: absolute;
-        display: block;
-        top: 45%;
-        margin-left: -10px;
-        border: solid $links;
-        padding: 3px;
-        border-width: 0 3px 3px 0;
-        transform: rotate(-45deg);
-        -webkit-transform: rotate(-45deg);
-       }
-     }
+     } 
    }
    #mainHeader{
      width: 100%;
      background-color: black;
-     height: 50px;
+     height: 100px;
      position: fixed;
      top: 0;
      left: 0;
      right: 0;
      border-bottom: solid 1px $primary;
      z-index: 100;
+     @include tablet {
+       height: 50px;
+     }
+     @include desktop {
+       height: 50px;
+     }
      #mainNav {
-       width: 60%;
-       height: 40px;
+       width: 90%;
+       height: 65px;
        left: 0;
        right: 0;
        margin: 0px auto;
-       padding-top: 10px;
+       padding-top: 35px;
        text-align: justify;
-       font-size: 1.2em;
+       font-size: 35px;
+       @include tablet {
+         width: 75%;
+         height: 40px;
+         font-size: 21px;
+         padding-top: 10px
+       }
+       @include desktop {
+         width: 60%;
+         height: 40px;
+         font-size: 21px;
+         padding-top: 10px
+       }
        a{
          display: inline-block;
-         margin: 5px 10px;
+         margin: 0px 18px;
          height: 100%;
+         &:hover {
+           color: $links; 
+         }
+         &.active {
+           color: $links;
+           &:after {
+             content: '';
+             position: absolute;
+             display: block;
+             top: 55%;
+             margin-left: -10px;
+             border: solid $links;
+             padding: 3px;
+             border-width: 0 3px 3px 0;
+             transform: rotate(-45deg);
+             -webkit-transform: rotate(-45deg);
+             @include tablet {
+               top: 35%;
+             }
+             @include desktop {
+               top: 35%;
+             }
+           }
+         }
        }
        &:after {
          content: '';
@@ -61,34 +92,75 @@ html {
        }
      }
    }
-   #firstPage{
+   .backgroundImage{
      width: 100%;
-     height: calc(100vh + 60px);
+     height: calc(100vh - 100px);
      position: absolute;
-     top: 0px;
+     top: 100px;
      margin-left: -30px;
      margin-right: -30px;
      background-color: black;
-     background-image: url("/imgs/Background-Temp.png");
      background-repeat: no-repeat;
      background-position: center;
+     overflow: hidden;
+     &#backgroundDay {
+       background-image: url("/imgs/Background-Day.png"); 
+     }
+     &#backgroundNight {
+       background-image: url("/imgs/Background-Night.png"); 
+     }
+     &.fadeOut{
+       -webkit-animation: fadeOut 1.5s linear;
+       animation: fadeOut 1.5s linear;
+       opacity: 0.0;
+     }
+     &.fadeIn {
+       -webkit-animation: fadeIn 2.5s linear;
+       animation: fadeIn 2.5s linear;
+       opacity: 1.0;
+     }
+     @include tablet {
+       top: 50px;
+       height: calc(100vh - 50px);
+     }
+     @include desktop {
+       top: 50px;
+       height: calc(100vh - 50px);
+     }
    }
    #mainContainer {
-     width: 60%;
-     padding: 0px 20px;
+     width: 90%;
      margin: 0 auto;
-     //display: flex;
      position: relative;
-     justify-content: center;
-     align-items: center;
+     font-size: 21px;
+     @include tablet {
+       width: 75%;
+     }
+     @include desktop {
+       width: 60%;
+     }
      .content {
-       padding-top: 60px;
-       display: inline-block;
+       padding-top: 110px;
+       position: absolute;
        width: 100%;
-       height: 100vh;
+       height: calc(100vh - 110px);
+       -webkit-transition: opacity 1.5s linear;
+       -moz-transition: opacity 1.5s linear;
+       -o-transition: opacity 1.5s linear;
+       -ms-transition: opcaity 1.5s linear;
+       transition: opacity 1.5s linear;
+       @include tablet {
+         padding-top: 60px;
+         height: calc(100vh - 60px);
+       }
+       @include desktop {
+         padding-top: 60px;
+         height: calc(100vh - 60px;
+       }
      }
      #aboutMe {
         width: 100%;
+        z-index: 5;
         #bio {
           padding: 0px 10px;
           background-color: rgba(0, 0, 0, 0.5);
@@ -120,7 +192,7 @@ html {
               background-color: rgba(0, 0, 0, 0.5);
               border: 1px solid $secondary;
               box-shadow: 0px 0px 5px $secondary;
-              height: 200px;
+              height: 250px;
               width: 30%;
               margin-left: 2.5%;
               float: left;
@@ -143,17 +215,23 @@ html {
           }
        }
        #projects{
-         height: calc(100vh - 60px);
+         opacity: 0.0;
+         height: calc(100vh - 110px);
+         z-index: 0;
+         @include tablet {
+           height: calc(100vh - 60px);
+         }
+         @include desktop {
+           height: calc(100vh - 60px);
+         }
          .projectCard {
            background-color: rgba(0, 0, 0, 0.5);
            border: 1px solid $secondary;
            box-shadow: 0px 0px 5px $secondary;
            width: 40%;
-           height: 150px;
-           margin: 0px 2.5%;
            float: left;
            padding: 5px 10px;
-           .feather {
+           .headerImg.feather {
              color: $accent;
              width: 40px;
              height: 40px;
@@ -163,7 +241,6 @@ html {
              width: 100%;
              
              .feather {
-               color: $primary;
                width: 20px;
                height: 20px;
              } 
